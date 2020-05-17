@@ -26,10 +26,8 @@ namespace NHSNumberValidation
 
             var aggregationModulus = multiplicationAggregation % 11;
 
-            var checkDigit = 11 - aggregationModulus;
-
-            if (checkDigit == 11)
-                checkDigit = 0;
+            //if checkDigit would be 11, mod 11 will set it to 0
+            var checkDigit = (11 - aggregationModulus) % 11;
 
             return aggregationModulus == checkDigit;
         }
